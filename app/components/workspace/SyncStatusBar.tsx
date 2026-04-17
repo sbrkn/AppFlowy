@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { syncService } from '@/services/sync.service';
 import type { SyncStatus } from '@/types';
 import { cn } from '@/lib/utils';

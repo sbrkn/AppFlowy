@@ -222,7 +222,7 @@ export async function refreshAccessToken(refreshToken: string): Promise<DriveTok
 /** Build the Google OAuth authorization URL */
 export function getAuthorizationUrl(state?: string): string {
   const params = new URLSearchParams({
-    client_id: process.env.NEXT_PUBLIC_FIREBASE_API_KEY ?? '',
+    client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID ?? process.env.GOOGLE_CLIENT_ID ?? '',
     redirect_uri: process.env.GOOGLE_REDIRECT_URI ?? '',
     response_type: 'code',
     scope: [

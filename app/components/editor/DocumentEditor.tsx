@@ -63,7 +63,8 @@ export function DocumentEditor({ documentId }: DocumentEditorProps) {
     saveTitle(e.target.value);
   }
 
-  // Rich text formatting
+  // Rich text formatting via execDocument – deprecated but broadly supported.
+  // For production, replace with a proper rich-text library (e.g. Tiptap, Lexical).
   function execCommand(command: string, value?: string) {
     doc && editorRef.current?.focus();
     window.document.execCommand(command, false, value);

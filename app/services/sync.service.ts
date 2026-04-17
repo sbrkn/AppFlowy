@@ -51,7 +51,9 @@ class SyncService {
   async queueOperation(op: Omit<SyncOperation, 'id' | 'timestamp' | 'retryCount'>): Promise<void> {
     const operation: SyncOperation = {
       ...op,
-      id: Math.random().toString(36).slice(2),
+      id: typeof crypto !== 'undefined' && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Math.random().toString(36).slice(2) + Date.now().toString(36),
       timestamp: Date.now(),
       retryCount: 0,
     };
