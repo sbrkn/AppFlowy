@@ -1,4 +1,5 @@
 import { firestoreService } from './firestore.service';
+import { generateId } from '@/lib/utils';
 import type { SyncOperation, SyncStatus } from '@/types';
 
 const PENDING_OPS_KEY = 'appflowy_pending_ops';
@@ -51,9 +52,7 @@ class SyncService {
   async queueOperation(op: Omit<SyncOperation, 'id' | 'timestamp' | 'retryCount'>): Promise<void> {
     const operation: SyncOperation = {
       ...op,
-      id: typeof crypto !== 'undefined' && crypto.randomUUID
-        ? crypto.randomUUID()
-        : Math.random().toString(36).slice(2) + Date.now().toString(36),
+      id: generateId(),
       timestamp: Date.now(),
       retryCount: 0,
     };

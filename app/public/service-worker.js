@@ -57,9 +57,10 @@ self.addEventListener('fetch', (event) => {
 
   // Skip non-GET requests and cross-origin requests
   if (request.method !== 'GET') return;
-  if (!url.origin.includes(self.location.origin) &&
-      !url.hostname.includes('googleapis.com') &&
-      !url.hostname.includes('firebaseio.com')) {
+  const ALLOWED_HOSTNAMES = ['googleapis.com', 'firebaseio.com'];
+  const isSameOrigin = url.origin === self.location.origin;
+  const isAllowedExternal = ALLOWED_HOSTNAMES.some((h) => url.hostname === h || url.hostname.endsWith(`.${h}`));
+  if (!isSameOrigin && !isAllowedExternal) {
     return;
   }
 

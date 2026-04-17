@@ -5,7 +5,10 @@ import { SignJWT } from 'jose';
 
 const rawSecret = process.env.JWT_SECRET;
 if (!rawSecret) {
-  throw new Error('JWT_SECRET environment variable is not set');
+  throw new Error(
+    'JWT_SECRET environment variable is not set. ' +
+    'Please add it to your .env.local file. See .env.local.example for reference.'
+  );
 }
 const JWT_SECRET = new TextEncoder().encode(rawSecret);
 

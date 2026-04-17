@@ -165,8 +165,10 @@ export class GoogleDriveClient {
 
   /** Search files by name */
   async searchFiles(query: string): Promise<DriveFile[]> {
+    // Escape single quotes in the search query to prevent query injection
+    const safeQuery = query.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
     const params = new URLSearchParams({
-      q: `name contains '${query}' and trashed = false`,
+      q: `name contains '${safeQuery}' and trashed = false`,
       fields: 'files(id, name, mimeType, size, modifiedTime, webViewLink, iconLink, parents)',
       pageSize: '20',
     });
