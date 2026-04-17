@@ -50,6 +50,7 @@ AppFlowy is the AI workspace where you achieve more without losing control of yo
       not supported
 - [Self-hosting AppFlowy](https://appflowy.com/docs/Step-by-step-Self-Hosting-Guide---From-Zero-to-Production)
 - [Source](https://docs.appflowy.io/docs/documentation/appflowy/from-source)
+- [Türkçe: Offline + Online Kullanım Rehberi](doc/offline-online-kullanim-tr.md)
 
 ## Built With
 
@@ -65,6 +66,8 @@ AppFlowy is the AI workspace where you achieve more without losing control of yo
 
 Please view the [documentation](https://docs.appflowy.io/docs/documentation/appflowy/from-source) for OS specific
 development instructions
+
+- [AppFlowy Pricing Design-System Guide](doc/appflowy-pricing-design-system.md)
 
 ## Roadmap
 
